@@ -24,18 +24,24 @@ nav img{
   flex: 1;
   text-align: right;
 }
-.nav-links ul li{
+.nav-links li{
   list-style-type: none;
   display: inline-block;
   margin-right: 10px;
 }
-.nav-links ul li a{
+.nav-links li{
   text-decoration: none;
   color:orangered;
   font-size: 20px;
   font-weight: 300;
 }
-.nav-links ul li::after{
+.active-menu {
+  text-decoration: none;
+  color:#f44336;
+  font-size: 20px;
+  font-weight: 300;
+}
+.nav-links li::after{
   content:'';
   width: 0%;
   height: 2px;
@@ -44,7 +50,7 @@ nav img{
   margin: auto;
   transition: 2s;
 }
-.nav-links ul li:hover::after{
+.nav-links li:hover::after{
      width: 100%;
 }
 .home{
