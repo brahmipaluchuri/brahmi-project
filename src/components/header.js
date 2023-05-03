@@ -35,6 +35,7 @@ import Link from 'next/link';
     const fnClick=(eve)=>{
         setMenuitem(eve.target.id)
          setLeft(-200)
+         alert('success')
     }
    const mobileClick=()=>{
         setLeft(left === 0 ? -200 :0)
