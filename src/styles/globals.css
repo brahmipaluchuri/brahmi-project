@@ -1,0 +1,140 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: lato,sans-serif;
+}
+.header{
+     width: 100%;
+     height: 100vh;
+     background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../../public/banner.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+}
+nav{
+ display: flex;
+ justify-content: space-between;
+ align-items: center; 
+ padding: 10px;
+}
+nav img{
+  width: 150px;
+}
+.nav-links{
+  flex: 1;
+  text-align: right;
+}
+.nav-links ul li{
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+.nav-links ul li a{
+  text-decoration: none;
+  color:orangered;
+  font-size: 20px;
+  font-weight: 300;
+}
+.nav-links ul li::after{
+  content:'';
+  width: 0%;
+  height: 2px;
+  background: rgb(207, 137, 24);
+  display: block;
+  margin: auto;
+  transition: 2s;
+}
+.nav-links ul li:hover::after{
+     width: 100%;
+}
+.home{
+   position: absolute;
+   top:40%;
+   left:50%;
+   transform: translateX(-50%);
+  text-align: center;
+}
+.home h1{
+  color:#fff;
+  font-size: 50px;
+  font-weight: 300;
+}
+.home h1 span{
+  color:darkorange;
+}
+.home p{
+  color: #fff;
+  line-height: 25px;
+  font-size: 18px;
+  font-weight: 300;
+
+}
+/*------------------------------------
+           home content
+------------------------------------*/
+.home-content{
+  width: 90%;
+  margin-top: 5%;
+  text-align: center;
+}
+.home-content h1{
+  font-size: 40px;
+  font-weight: 500;
+}
+.home-content p{
+  margin-left: 10%;
+  font-size: 18px;
+}
+/*--------------------------------------------
+       home Footer
+--------------------------------------------*/
+.footer i{
+  color:#f44336;
+}
+.footer div{
+  letter-spacing: 20px;
+  margin-top: 5%;
+  cursor: pointer;
+}
+/*---------------------------------------------
+             Home facilities
+----------------------------------------------*/
+.home-facilites{
+     width: 100%;
+     margin: auto;
+     text-align: center;
+     padding-top: 100px;
+}
+.home-facilites h3{
+  font-size: 30px;
+  font-weight: 500;
+}
+.home-facilites p{
+  font-size: 18px;
+  font-weight: 400;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+.fact-lib{
+   border-radius: 10px;
+   margin-bottom: 5%;
+   text-align: left; 
+   overflow: hidden;
+}
+.fact-lib Image{
+  width: 100%;
+  border-radius: 10px;
+}
+.fact-lib h3{
+  margin-top: 3%;
+  font-size: 30px;
+  font-weight: 400;
+}
+.fact-lib p{
+  font-size: 18px;
+  font-weight: 400;
+}
+
