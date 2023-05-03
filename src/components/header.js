@@ -6,23 +6,50 @@ import Link from 'next/link';
 
  const Header=()=>{
     const[menuitem,setMenuitem] = useState('')
+    const[mobilemenu,setMobilemenu] =useState(false)
+    const [right ,setRight] = useState(-200)
+  const getMobilemenuWidth=()=>{
+      let timeoutId;
+      let flag = true;
+      window.addEventListener('resize',()=>{
+        let width = document.body.offsetWidth
+        if(flag){
+            setMobilemenu(width < 600 ? true : false)
+            flag=false;  
+        }
+         clearTimeout(timeoutId)
+         timeoutId=setTimeout(()=>{
+            setMobilemenu(width < 600 ? true : false)
+        },1000)
 
+      })
+  }
     useEffect(()=>{
       let pathName = window.location.pathname
       setMenuitem(pathName)
       setMenuitem(pathName.slice(1) || 'home')
+      getMobilemenuWidth()
     },[])
 
     const fnClick=(eve)=>{
         setMenuitem(eve.target.id)
-        alert('ss')
+         setRight(-200)
     }
+   const mobileClick=()=>{
+        setRight(right === 0 ? -200 :0)
+   }  
+   const fnClose=()=>{
+    setRight(-200)  
+   }
+
     return <div>
         <div className='header'>
             <nav>
             <Image src={logoImage} alt='logo'/>
                 <div>
-                   <ul className='nav-links'>
+                 {mobilemenu && <button onClick={mobileClick} className='btn btn-outline-primary text-danger mobile-menu-btn'>Menu</button>}
+                   <ul style={{right:right}} className={mobilemenu ? 'mobile-menu': 'nav-links'}>
+                   {mobilemenu && <span onClick={fnClose} className='close-btn'>X</span>}
                     <li><Link id='home' onClick={fnClick} className={menuitem == 'home' && 'active-menu'} href='/home'>Home</Link></li>
                     <li><Link id='about' onClick={fnClick} className={menuitem == 'about' && 'active-menu'} href ='/about'>About us</Link></li>
                     <li><Link id='contact' onClick={fnClick} className={menuitem == 'contact' && 'active-menu'} href ='/contact'>Contact</Link></li>
