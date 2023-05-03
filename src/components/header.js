@@ -1,21 +1,33 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Image from 'next/image';
 import logoImage from '../../public/logo.png';
 import Link from 'next/link';
 
 
- const header=()=>{
+ const Header=()=>{
+    const[menuitem,setMenuitem] = useState('')
+
+    useEffect(()=>{
+      let pathName = window.location.pathname
+      setMenuitem(pathName)
+      setMenuitem(pathName.slice(1) || 'home')
+    },[])
+
+    const fnClick=(eve)=>{
+        setMenuitem(eve.target.id)
+        alert('ss')
+    }
     return <div>
         <div className='header'>
             <nav>
             <Image src={logoImage} alt='logo'/>
-                <div className='nav-links'>
-                   <ul>
-                    <li><Link legacyBehavior href='/home'><a>Home</a></Link></li>
-                    <li><Link href ='/about'><span>About us</span></Link></li>
-                    <li><Link href ='/contact'><span>Contact</span></Link></li>
-                    <li><Link href ='/histor'><span>Histore</span></Link></li>
-                    <li><Link href='/blog'><span>Blog</span></Link></li>
+                <div>
+                   <ul className='nav-links'>
+                    <li><Link id='home' onClick={fnClick} className={menuitem == 'home' && 'active-menu'} href='/home'>Home</Link></li>
+                    <li><Link id='about' onClick={fnClick} className={menuitem == 'about' && 'active-menu'} href ='/about'>About us</Link></li>
+                    <li><Link id='contact' onClick={fnClick} className={menuitem == 'contact' && 'active-menu'} href ='/contact'>Contact</Link></li>
+                    <li><Link id='details' onClick={fnClick} className={menuitem == 'details' && 'active-menu'} href ='/details'>Details</Link></li>
+                    <li><Link id='blog' onClick={fnClick} className={menuitem == 'blog' && 'active-menu'} href='/blog'>Blog</Link></li>
                    </ul>
                 </div>
             </nav>
@@ -29,4 +41,4 @@ import Link from 'next/link';
         </div>
 }
 
-export default header
+export default Header
