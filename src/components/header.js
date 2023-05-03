@@ -7,10 +7,11 @@ import Link from 'next/link';
  const Header=()=>{
     const[menuitem,setMenuitem] = useState('')
     const[mobilemenu,setMobilemenu] =useState(false)
-    const [right ,setRight] = useState(-200)
+    const [left ,setLeft] = useState(-200)
   const getMobilemenuWidth=()=>{
       let timeoutId;
       let flag = true;
+      setMobilemenu(document.body.offsetWidth < 600 ? true : false)
       window.addEventListener('resize',()=>{
         let width = document.body.offsetWidth
         if(flag){
@@ -33,13 +34,13 @@ import Link from 'next/link';
 
     const fnClick=(eve)=>{
         setMenuitem(eve.target.id)
-         setRight(-200)
+         setLeft(-200)
     }
    const mobileClick=()=>{
-        setRight(right === 0 ? -200 :0)
+        setLeft(left === 0 ? -200 :0)
    }  
    const fnClose=()=>{
-    setRight(-200)  
+    setLeft(-200)  
    }
 
     return <div>
@@ -48,7 +49,7 @@ import Link from 'next/link';
             <Image src={logoImage} alt='logo'/>
                 <div>
                  {mobilemenu && <button onClick={mobileClick} className='btn btn-outline-primary text-danger mobile-menu-btn'>Menu</button>}
-                   <ul style={{right:right}} className={mobilemenu ? 'mobile-menu': 'nav-links'}>
+                   <ul style={{left:left}} className={mobilemenu ? 'mobile-menu': 'nav-links'}>
                    {mobilemenu && <span onClick={fnClose} className='close-btn'>X</span>}
                     <li><Link id='home' onClick={fnClick} className={menuitem == 'home' && 'active-menu'} href='/home'>Home</Link></li>
                     <li><Link id='about' onClick={fnClick} className={menuitem == 'about' && 'active-menu'} href ='/about'>About us</Link></li>

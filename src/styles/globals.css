@@ -38,14 +38,14 @@ nav img{
   height: 200px;
   background-color:rgb(201, 236, 225);
   list-style-type: none;
-  line-height: 34px;
+  line-height: 36px;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   position: absolute;
   top: 60px;
-  right:-200px;
-  transition: right 1s;
+  left:-200px;
+  transition: left 1s;
 }
 .active-menu {
   text-decoration: none;
@@ -61,8 +61,8 @@ nav img{
 .close-btn{
   position: absolute;
   top:0;
-  left:0;
-  font-size: 24px;
+  right:0;
+  font-size: 22px;
   font-weight: 400;
   cursor: pointer;
 }
